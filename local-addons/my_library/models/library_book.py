@@ -225,6 +225,19 @@ class LibraryBook(models.Model):
         #     'another_field': 'value'
         # })
     
+    def find_book(self):
+        domain = [
+            '|',
+            '&', ('name', 'ilike', 'book'),
+                ('category_id.name', 'ilike', 'fiction'),
+            '&', ('name', 'ilike', 'Book Name 2'),
+                ('category_id.name', 'ilike', 'Category Name 2'),            
+        ]
+        
+        books = self.search(domain)
+        print('Books found:', books.name)
+        return True
+    
 class ResPartner(models.Model):
     _inherit = 'res.partner'
     _order = 'name'
