@@ -216,6 +216,14 @@ class LibraryBook(models.Model):
         record = self.env['library.book.category'].create(parent_category_val)
         return True    
 
+    def change_release_date(self):
+        self.ensure_one()
+        self.date_release = fields.Date.today()
+        # use the below commented code if there are more than one field to update
+        # self.update({
+        #     'date_release': fields.Datetime.now(),
+        #     'another_field': 'value'
+        # })
     
 class ResPartner(models.Model):
     _inherit = 'res.partner'
