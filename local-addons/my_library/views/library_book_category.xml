@@ -21,6 +21,7 @@
             <form>
                 <group>
                     <field name="name"/>
+                    <field name="description"/>
                 </group>
                 <group>
                     <field name="parent_id"/>
