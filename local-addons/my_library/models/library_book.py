@@ -32,7 +32,6 @@ class LibraryBook(models.Model):
         string = 'Authors'
     )
 
-
     notes = fields.Text('Internal Notes')
     state = fields.Selection(
         [
@@ -78,6 +77,26 @@ class LibraryBook(models.Model):
         store=False, # optional
         compute_sudo=True # optional
     )
+    manager_remarks = fields.Text('Manager Remarks')
+    
+    def create(self, values):
+        if not self.user_has_groups('my_library.group_librarian'):
+            if 'manager_remarks' in values:
+                # raise UserError(
+                #     'You are not allowed to modify' 'manager remarks'
+                # )
+                del values['manager_remarks']
+        return super(LibraryBook, self).create(values)
+    
+    def write(self, values):
+        if not self.user_has_groups('my_library.group_librarian'):
+            if 'manager_remarks' in values:
+                # raise UserError(
+                #     'You are not allowed to modify' 'manager remarks'
+                # )
+                # alt code
+                del values['manager_remarks']
+        return super(LibraryBook, self).write(values)
 
     def name_get(self):
         """ This method used to customize display name of the record """
