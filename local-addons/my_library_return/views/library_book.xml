@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Book Form View Inherit -->
+<record id="library_book_view_form_inh" model="ir.ui.view">
+  <field name="name">Library Book Form</field>
+  <field name="model">library.book</field>
+  <field name="inherit_id" ref="my_library.library_book_view_form"></field>
+  <field name="arch" type="xml">
+    <field name="author_ids" position="after">
+      <field name="date_return"/>
+    </field>
+  </field>
+
+</record>
+
+<!-- Book Category Form View Inherit -->
+<record id="library_book__category_view_form_inh" model="ir.ui.view">
+  <field name="name">Library Book Category Form</field>
+  <field name="model">library.book.category</field>
+  <field name="inherit_id" ref="my_library.library_book_category_view_form"></field>
+  <field name="arch" type="xml">
+    <field name="parent_id" position="after">
+      <field name="max_borrow_days"/>
+    </field>
+  </field>
+</record>
+
+  <!-- <data> -->
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="my_library_return.list">
+      <field name="name">my_library_return list</field>
+      <field name="model">my_library_return.my_library_return</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="my_library_return.action_window">
+      <field name="name">my_library_return window</field>
+      <field name="res_model">my_library_return.my_library_return</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="my_library_return.action_server">
+      <field name="name">my_library_return server</field>
+      <field name="model_id" ref="model_my_library_return_my_library_return"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="my_library_return" id="my_library_return.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="my_library_return.menu_1" parent="my_library_return.menu_root"/>
+    <menuitem name="Menu 2" id="my_library_return.menu_2" parent="my_library_return.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="my_library_return.menu_1_list" parent="my_library_return.menu_1"
+              action="my_library_return.action_window"/>
+    <menuitem name="Server to list" id="my_library_return" parent="my_library_return.menu_2"
+              action="my_library_return.action_server"/>
+-->
+  <!-- </data> -->
+</odoo>
