@@ -79,6 +79,15 @@ class LibraryBook(models.Model):
         compute_sudo=True # optional
     )
 
+    @api.model
+    def update_book_price(self):
+        print('inside update_book_price')
+        # NOTE: Real cases can be complex but here we just increse cost price by 10
+        # _logger.info('Method update_book_price called from XML')
+        all_books = self.search([])
+        for book in all_books:
+            book.cost_price += 10
+            
     def name_get(self):
         """ This method used to customize display name of the record """
         result = []
@@ -238,6 +247,14 @@ class LibraryBook(models.Model):
         print('Books found:', books.name)
         return True
     
+    # @api.model
+    # def _update_book_price(self):
+    #     all_books = self.search([])
+    #     for book in all_books:
+    #         book.cost_price += 10
+
+
+                
 class ResPartner(models.Model):
     _inherit = 'res.partner'
     _order = 'name'
