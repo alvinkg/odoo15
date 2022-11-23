@@ -29,16 +29,20 @@
         'views/views.xml',
         'views/templates.xml',
         'views/library_book.xml',
+        'data/data.xml',
+        'data/demo.xml',
         'views/library_book_category.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo/demo.xml',
+        'data/demo.xml',
     ],
     'application': True,
     'license': 'LGPL-3',
     'price': '',
     'currency': 'SGD',
     'sequence': 0,
-    # test
+    'demo': [
+        'demo/demo.xml',
+        ],
 }
