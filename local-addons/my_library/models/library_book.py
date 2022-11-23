@@ -253,7 +253,15 @@ class LibraryBook(models.Model):
                 return False
         return all_books.filtered(predicate)
     
+    def mapped_books(self):
+        all_books = self.search([])
+        books_authors = self.get_author_names(all_books)
+        print('Book authors: %s', books_authors)
     
+    @api.model
+    def get_author_names(self, all_books):
+        return all_books.mapped('author_ids.name')
+        
 class ResPartner(models.Model):
     _inherit = 'res.partner'
     _order = 'name'
