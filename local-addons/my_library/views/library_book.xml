@@ -30,6 +30,7 @@
                     <button name="find_book" string="Find Book" type="object"/>
                     <button name="filter_books" string="Filter Book" type="object"/>
                     <button name="mapped_books" string="Get Authors" type="object"/>
+                    <button name="sorted_books" string="Sort Books" type="object"/>
                     <button name="log_all_library_members" string="Log Members" type="object"/>
                     <button name="create_categories" string="Create Categories" type="object"/>
                     <field name="state" widget="statusbar"/>
