@@ -26,6 +26,7 @@ class LibraryBook(models.Model):
         
     short_name = fields.Char('Short Title', translate=True, index=True)
     name = fields.Char('Title', required=True)
+    isbn = fields.Char('ISBN')
     date_release = fields.Date('Release Date')
     author_ids = fields.Many2many(
         'res.partner',
@@ -55,6 +56,8 @@ class LibraryBook(models.Model):
         digits=(14, 4),  # Optional precision (total, decimals),
     )
     author_ids = fields.Many2many('res.partner', string='Authors')
+    old_edition = fields.Many2one('library.book', string='Old Edition')
+    
     cost_price = fields.Float('Book Cost', digits='Book Price')
     currency_id = fields.Many2one('res.currency', string='Currency')
     retail_price = fields.Monetary('Retail Price') # optional attribute: currency_field='currency_id' incase currency field have another name then 'currency_id'
@@ -289,8 +292,19 @@ class LibraryBook(models.Model):
     @api.model
     def sort_books_by_date(self, all_books):
         return all_books.sorted(key='date_release')
-        
-        
+    
+    @api.model
+    def _name_search(self, name='', args=None, operator='ilike', limit=100, name_get_uid=None):
+        args = [] if args is None else args.copy()   
+        if not(name == '' and operator == 'ilike'):
+            args += ['|', '|', '|',
+                ('name', operator, name),
+                ('isbn', operator, name),
+                ('author_ids.name', operator, name)
+            ]
+        return super(LibraryBook, self)._name_search(
+            name=name, args=args, operator=operator, limit=limit, name_get_uid=name_get_uid)
+              
 class ResPartner(models.Model):
     _inherit = 'res.partner'
     _order = 'name'
