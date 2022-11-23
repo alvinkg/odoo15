@@ -35,7 +35,7 @@
     ],
     # only loaded in demonstration mode
     'demo': [
-        'data/demo.xml',
+        # 'data/demo.xml',
     ],
     'application': True,
     'license': 'LGPL-3',
@@ -43,6 +43,6 @@
     'currency': 'SGD',
     'sequence': 0,
     'demo': [
-        'demo/demo.xml',
+        'data/demo.xml',
         ],
 }
