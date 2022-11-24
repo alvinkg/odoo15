@@ -249,11 +249,19 @@ class LibraryBook(models.Model):
         print('Books found:', books.name)
         return True
     
-    # @api.model
-    # def _update_book_price(self):
-    #     all_books = self.search([])
-    #     for book in all_books:
-    #         book.cost_price += 10
+    # code to allow users ability to rent books themselves
+    def book_rent(self):
+        self.ensure_one()
+        if self.state != 'available':
+            raise UserError(_('Book is not available for borrowing.'))
+        rent_as_superuser = self.env['library.book.rent'].sudo()
+        rent_as_superuser.create(
+            {
+                'book_id': self.id,
+                'borrower_id': self.env.user.partner_id.id
+            }
+        )
+        
 
 
                 

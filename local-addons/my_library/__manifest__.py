@@ -26,11 +26,12 @@
     'data': [
         'security/groups.xml',
         'security/ir.model.access.csv',
+        'data/data.xml',
+        'data/demo.xml',
         'views/views.xml',
         'views/templates.xml',
         'views/library_book.xml',
-        'data/data.xml',
-        'data/demo.xml',
+        'views/library_book_rent.xml',
         'views/library_book_category.xml',
     ],
     # only loaded in demonstration mode
