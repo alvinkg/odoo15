@@ -3,11 +3,11 @@
     'name': "my_library",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Library in Odoo
+        """,
 
     'description': """
-        Long description of module's purpose
+        Library in Odoo
     """,
 
     'author': "My Company",
@@ -48,4 +48,5 @@
     'demo': [
         'data/demo.xml',
         ],
+    'post_init_hook': 'add_book_hook',
 }
