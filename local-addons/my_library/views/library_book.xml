@@ -31,6 +31,7 @@
                     <button name="book_rent" string="Rent Book" type="object" class="btn-primary"/>
                     <button name="log_all_library_members" string="Log Members" type="object"/>
                     <button name="create_categories" string="Create Categories" type="object"/>
+                    <button name="average_book_occupation" string="Log Average Occ." type="object"/>
                     <field name="state" widget="statusbar"/>
                 </header>
                 <group>

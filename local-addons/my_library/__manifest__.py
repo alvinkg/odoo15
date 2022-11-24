@@ -31,8 +31,9 @@
         'views/views.xml',
         'views/templates.xml',
         'views/library_book.xml',
-        'views/library_book_rent.xml',
+        'views/library_book_rent.xml',        
         'views/library_book_category.xml',
+        'wizard/library_book_rent_wizard.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -5,6 +5,7 @@ from datetime import timedelta
 from odoo.exceptions import UserError
 from odoo.tools.translate import _
 import logging
+_logger = logging.getLogger(__name__)
 
 
 class BaseArchive(models.AbstractModel):
@@ -32,7 +33,6 @@ class LibraryBook(models.Model):
         'res.partner',
         string = 'Authors'
     )
-
 
     notes = fields.Text('Internal Notes')
     state = fields.Selection(
@@ -211,7 +211,6 @@ class LibraryBook(models.Model):
         print("All Members:", all_members)
         return True
     
-    
     def create_categories(self):
         categ1 = {
             'name': 'Child category 1',
@@ -267,10 +266,23 @@ class LibraryBook(models.Model):
                 'borrower_id': self.env.user.partner_id.id
             }
         )
-        
-
-
-                
+    
+    def average_book_occupation(self):
+        self.flush()
+        sql_query = """
+            SELECT
+                lb.name,
+                avg((EXTRACT(epoch from age(return_date, rent_date)) / 86400))::int
+            FROM
+                library_book_rent AS lbr
+            JOIN
+                library_book as lb ON lb.id = lbr.book_id
+            WHERE lbr.state = 'returned'
+            GROUP BY lb.name;"""
+        self.env.cr.execute(sql_query)
+        result = self.env.cr.fetchall()
+        _logger.info("Average book occupation: %s", result)
+               
 class ResPartner(models.Model):
     _inherit = 'res.partner'
     _order = 'name'

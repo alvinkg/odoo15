@@ -3,6 +3,8 @@ book_librarian,library.book_librarian,model_library_book,group_librarian,1,1,1,1
 book_user,library.book_user,model_library_book,base.group_user,1,0,0,0
 book_rent_librarian,library.book_rent_librarian,model_library_book_rent,group_librarian,1,1,1,1
 book_rent_user,library.book_rent_user,model_library_book_rent,base.group_user,1,0,0,0
+library_rent_wizard_librarian,library.library_rent_wizard_librarian,model_library_rent_wizard,group_librarian,1,1,1,1
+library_rent_wizard_user,library.library_rent_wizard_user,model_library_rent_wizard,base.group_user,1,0,0,0
 book_category_librarian,library.book_category_librarian,model_library_book_category,group_librarian,1,1,1,1
 book_category_user,library.book_category_user,model_library_book_category,base.group_user,1,0,0,0
 member_librarian,library.member_librarian,model_library_member,group_librarian,1,1,1,1
