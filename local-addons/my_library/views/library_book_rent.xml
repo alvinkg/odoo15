@@ -16,10 +16,9 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="book_return"
-                    string="Return the Book"
-                    states="ongoing"
-                    type="object"/>
+                    <button name="book_return" string="Return the Book" states="ongoing" type="object"/>
+                    <button name="book_lost" string="Report Lost Book" states="ongoing" type="object"/>
+                
                     <field name='state' widget='statusbar'/>
                 </header>
                 <sheet>

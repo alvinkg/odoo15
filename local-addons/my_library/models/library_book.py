@@ -24,7 +24,7 @@ class LibraryBook(models.Model):
     _rec_name = 'short_name'
     _inherit = ['base.archive']
 
-        
+    active = fields.Boolean(default=True)  
     short_name = fields.Char('Short Title', translate=True, index=True)
     name = fields.Char('Title', required=True)
     date_release = fields.Date('Release Date')
@@ -43,6 +43,7 @@ class LibraryBook(models.Model):
         ],
         'State', default="draft") 
 
+    
     description = fields.Html('Description', sanitize=True, strip_style=False)
     cover = fields.Binary('Book Cover')
     out_of_print = fields.Boolean('Out of Print?')
@@ -194,8 +195,13 @@ class LibraryBook(models.Model):
         print('make borrowed')
         
     def make_lost(self):
-        self.change_state('lost')
-        print('make lost')
+        # old code
+        # self.change_state('lost')
+        # print('make lost')
+        self.ensure_one()
+        self.state = 'lost'
+        if not self.env.context.get('avoid_deactivate'):
+            self.active = False
         
         
     def log_all_library_members(self):
