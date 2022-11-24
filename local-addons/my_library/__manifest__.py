@@ -34,6 +34,7 @@
         'views/library_book_rent.xml',        
         'views/library_book_category.xml',
         'wizard/library_book_rent_wizard.xml',
+        'wizard/library_book_return_wizard.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
