@@ -288,11 +288,18 @@ class LibraryBook(models.Model):
         self.ensure_one()
         # get empty recordset of model below
         wizard = self.env['library.return.wizard']
-        with Form(wizard) as return_form:
-            return_form.borrower_id = self.env.user.partner_id
-            record = return_form.save()
-            record.books_returns()
-               
+        
+        # below code is when we use the onchange decorator
+        # with Form(wizard) as return_form:
+        #     return_form.borrower_id = self.env.user.partner_id
+        #     record = return_form.save()
+        #     record.books_returns()
+        
+        # below code is when we use the @api.depends + compute decorator
+        wizard.create({
+            'borrower_id': self.env.user.partner_id.id
+        }).books_returns()
+        
 class ResPartner(models.Model):
     _inherit = 'res.partner'
     _order = 'name'
