@@ -4,6 +4,7 @@ from odoo import models, fields, api
 from datetime import timedelta
 from odoo.exceptions import UserError
 from odoo.tools.translate import _
+from odoo.tests.common import Form
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -282,6 +283,15 @@ class LibraryBook(models.Model):
         self.env.cr.execute(sql_query)
         result = self.env.cr.fetchall()
         _logger.info("Average book occupation: %s", result)
+        
+    def return_all_books(self):
+        self.ensure_one()
+        # get empty recordset of model below
+        wizard = self.env['library.return.wizard']
+        with Form(wizard) as return_form:
+            return_form.borrower_id = self.env.user.partner_id
+            record = return_form.save()
+            record.books_returns()
                
 class ResPartner(models.Model):
     _inherit = 'res.partner'

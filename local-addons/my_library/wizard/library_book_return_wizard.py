@@ -17,9 +17,7 @@ class LibraryBookReturnWizard(models.TransientModel):
                  ('borrower_id', '=', rec.borrower_id.id)]
             )
             for loan in loans:
-                print('inside loan')
                 loan.book_return()
-                print('loan returned')
                 
                 
     @api.onchange('borrower_id')
@@ -32,3 +30,24 @@ class LibraryBookReturnWizard(models.TransientModel):
             ]
         )
         self.book_ids = books_on_rent.mapped('book_id')
+        
+        # result = {
+        #     'domain': {
+        #         'book_ids': [('id', 'in', self.book_ids.ids)]
+        #         }
+        #     }
+        # late_domain = [
+        #         ('id', 'in', books_on_rent.ids),
+        #         ('expected_return_date', '<', fields.Date.today())
+        #     ]
+        
+        # late_books = loans.search(late_domain)
+            
+        # if late_books:
+        #     message = ('Warn the member that the following books are late:\n')
+        #     titles = late_books.mapped('book_id.name')
+        #     result['warning'] = {
+        #             'title': 'Late books',
+        #             'message': message + '\n'.join(titles)
+        #             }
+        # return result
