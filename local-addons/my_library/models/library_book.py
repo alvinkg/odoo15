@@ -4,6 +4,7 @@ from odoo import models, fields, api
 from datetime import timedelta
 from odoo.exceptions import UserError
 from odoo.tools.translate import _
+import logging
 
 
 class BaseArchive(models.AbstractModel):
@@ -82,8 +83,9 @@ class LibraryBook(models.Model):
     @api.model
     def update_book_price(self):
         print('inside update_book_price')
+        _logger = logging.getLogger(__name__)
         # NOTE: Real cases can be complex but here we just increse cost price by 10
-        # _logger.info('Method update_book_price called from XML')
+        _logger.info('Method update_book_price called from XML')
         all_books = self.search([])
         for book in all_books:
             book.cost_price += 10
