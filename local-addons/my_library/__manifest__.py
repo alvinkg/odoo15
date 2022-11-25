@@ -26,8 +26,9 @@
     'data': [
         'security/groups.xml',
         'security/ir.model.access.csv',
-        'data/data.xml',
-        'data/demo.xml',
+        # 'data/data.xml',
+        # 'data/demo.xml',
+        'data/library_stage.xml',
         'views/views.xml',
         'views/templates.xml',
         'views/library_book.xml',
