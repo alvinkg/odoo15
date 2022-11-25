@@ -9,6 +9,8 @@ book_category_librarian,library.book_category_librarian,model_library_book_categ
 book_category_user,library.book_category_user,model_library_book_category,base.group_user,1,0,0,0
 library_rent_stage_librarian,library.rent_stage_librarian,model_library_rent_stage,group_librarian,1,1,1,1
 library_rent_stage_user,library.rent_stage_user,model_library_rent_stage,base.group_user,1,0,0,0
+library_rent_tags_librarian,library.rent_tags_librarian,model_library_rent_tags,group_librarian,1,1,1,1
+library_rent_tags_user,library.rent_tags_user,model_library_rent_tags,base.group_user,1,0,0,0
 library_rent_wizard_librarian,library.library_rent_wizard_librarian,model_library_rent_wizard,group_librarian,1,1,1,1
 library_rent_wizard_user,library.library_rent_wizard_user,model_library_rent_wizard,base.group_user,1,0,0,0
 library_return_wizard_librarian,library.library_return_wizard_librarian,model_library_return_wizard,group_librarian,1,1,1,1
