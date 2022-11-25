@@ -14,3 +14,7 @@ After creating the server actions it is required to upgrade the project module.
 
 Enabling the archive option for records
 This is quite simple really.
+
+Adding a stat button to a form view
+This is working but I am not quite clear how the action works.
+I have to look at the Odoo Mates example later to get more info.

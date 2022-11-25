@@ -23,6 +23,13 @@
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
+                    
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" name="%(library_book_rent_action)d" type="action" icon="fa-book" context="{'search_default_book_id': active_id}">
+                            <field string="Rent Orders" name="rent_count" widget="statinfo"/>
+                        </button>  
+                    </div>
+
                     <group>
                         <group>
                             <field name="active" invisible="1"/>
