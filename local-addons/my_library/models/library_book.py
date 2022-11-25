@@ -6,6 +6,7 @@ class LibraryBook(models.Model):
     _name = 'library.book'
     _description = 'Library Book'
 
+    active = fields.Boolean(default=True)
     name = fields.Char('Title', required=True)
     date_release = fields.Date('Release Date')
     active = fields.Boolean(default=True)
