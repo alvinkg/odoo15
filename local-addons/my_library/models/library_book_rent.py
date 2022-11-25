@@ -69,4 +69,7 @@ class LibraryRentTags(models.Model):
     
     name = fields.Char()
     color = fields.Integer()
-    
+
+class ResPartner(models.Model):
+    _inherit = 'res.partner'
+    rent_ids = fields.One2many('library.book.rent', 'borrower_id')

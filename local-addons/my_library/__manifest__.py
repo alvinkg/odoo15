@@ -20,7 +20,7 @@
     'version': '15.0.1.0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'contacts'],
 
     # always loaded
     'data': [
@@ -36,16 +36,16 @@
         'views/library_book_category.xml',
         'wizard/library_book_rent_wizard.xml',
         'wizard/library_book_return_wizard.xml',
+        'reports/book_rent_report.xml',
+        'reports/book_rents_template.xml',
     ],
-    # only loaded in demonstration mode
-    'demo': [
-        # 'data/demo.xml',
-    ],
+    
     'application': True,
     'license': 'LGPL-3',
     'price': '',
     'currency': 'SGD',
     'sequence': 0,
+    # only loaded in demonstration mode
     'demo': [
         'data/demo.xml',
         ],

@@ -18,3 +18,6 @@ This is quite simple really.
 Adding a stat button to a form view
 This is working but I am not quite clear how the action works.
 I have to look at the Odoo Mates example later to get more info.
+
+Creating QWeb-based PDF reports
+The unanswered question is how to add the headers and footers for the external doc layout.
