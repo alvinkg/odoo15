@@ -21,3 +21,6 @@ I have to look at the Odoo Mates example later to get more info.
 
 Creating QWeb-based PDF reports
 The unanswered question is how to add the headers and footers for the external doc layout.
+
+Managing activities from a kanban card
+Quite straightforward.

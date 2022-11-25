@@ -84,6 +84,7 @@
             <kanban default_group_by="stage_id" quick_create_view="my_library.library_book_rent_view_form_minimal" on_create="quick_create">
                 <field name="stage_id"/>
                 <field name="color"/>
+                <field name="activity_state"/>
                 <progressbar field="popularity" colors='{"low": "success", "medium": "warning", "high": "danger"}'/>
                 <templates>
                     <t t-name="kanban-box">
@@ -131,6 +132,10 @@
 
                                     <div>
                                         <field name="popularity" widget="priority"/>
+                                    </div>
+
+                                    <div>
+                                        <field name="activity_ids" widget="kanban_activity"/>
                                     </div>
 
                                 </div>

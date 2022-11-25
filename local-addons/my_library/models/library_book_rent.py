@@ -4,6 +4,7 @@ from odoo import models, fields, api
 
 class LibraryBookRent(models.Model):
     _name = 'library.book.rent'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     @api.model
     def _default_rent_stage(self):
