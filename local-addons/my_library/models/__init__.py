@@ -7,3 +7,4 @@ from . import library_book_copy
 from . import library_member
 from . import base_archive
 from . import library_book_rent
+from . import res_config_settings
