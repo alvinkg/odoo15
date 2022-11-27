@@ -43,4 +43,37 @@ class Main(http.Controller):
         records = request.env['library.book'].sudo().search([])
         return records.read(['name'])
     
-
+    @http.route('/my_library/all_books', type='http', auth='none')
+    def all_books(self):
+        # create a var books and assign the results of a search of library.book
+        books = request.env['library.book'].sudo().search([])
+        # start assigning the construct of a webpage to the var below
+        html_result = '<html><body><ul>'
+        # assign a line to the name of each book found
+        for book in books:
+            html_result += "<li>%s</li>" % book.name
+        html_result += '</ul></body></html>'
+        return html_result
+    
+    @http.route('/my_library/all_books/mark_mine', type='http', auth='public')
+    def all_books_mark_mine(self):
+        books = request.env['library.book'].sudo().search([])
+        html_result = '<html><body><ul>'
+        for book in books:
+            if request.env.user.partner_id.id in book.author_ids.ids:
+                html_result += "<li><b>%s</b></li>" % book.name
+            else:
+                html_result += "<li>%s</li>" % book.name
+        html_result += '</ul></body></html>'
+        return html_result
+    
+    @http.route('/my_library/all_books/mine', type='http', auth='user')
+    def all_books_mine(self):
+        
+        books = request.env['library.book'].search([('author_ids','in', request.env.user.partner_id.ids)])
+   
+        html_result = '<html><body><ul>'
+        for book in books:
+            html_result += "<li>%s</li>" % book.name
+        html_result += '</ul></body></html>'
+        return html_result
