@@ -24,3 +24,9 @@ The unanswered question is how to add the headers and footers for the external d
 
 Managing activities from a kanban card
 Quite straightforward.
+
+Consuming parameters passed to your handlers
+    # this is not working
+    @http.route("/my_library/book_details/<model('library.book'):book>", type='http', auth='none')
+    def book_details_in_path(self, book):
+        return self.book_details(book.id)

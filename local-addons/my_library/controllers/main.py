@@ -77,3 +77,25 @@ class Main(http.Controller):
             html_result += "<li>%s</li>" % book.name
         html_result += '</ul></body></html>'
         return html_result
+    
+    # @http.route('/my_library/book_details', type='http', auth='none')
+    # def book_details(self, book_id): 
+    #     record = request.env['library.book'].sudo().browse(int(book_id))
+    #     return u'<html><body><h1>%s</h1>Authors: %s' % (record.name, u', '.join(record.author_ids.mapped('name')) or 'none',
+    #         )
+
+    # @http.route("/my_library/book_details_in_path/<model('library.book'):book>", type='http', auth='none')
+    # def book_details_in_path(self, book): 
+    #     return self.book_details(book.id)
+    
+    @http.route('/my_library/book_details', type='http', auth='none')
+    def book_details(self, book_id):
+        record = request.env['library.book'].sudo().browse(int(book_id))
+        return u'<html><body><h1>%s</h1>Authors: %s' % (
+            record.name,
+            u', '.join(record.author_ids.mapped('name')) or 'none',
+        )
+    # this is not working
+    @http.route("/my_library/book_details/<model('library.book'):book>", type='http', auth='none')
+    def book_details_in_path(self, book):
+        return self.book_details(book.id)
