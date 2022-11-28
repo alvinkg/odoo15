@@ -37,6 +37,27 @@ odoo.define('my.component', function (require) {
             // state.currentIndex%5:= the num '5' sets expected num of items in the list.  CurrentIndex: 1 is the start position of the list.
             this.state = useState({ currentIndex: 1 });
         }
+
+        async willStart() {
+            console.log('CALLED:> willStart');
+        }
+
+        mounted() {
+            console.log('CALLED:> mounted');
+        }
+
+        willPatch() {
+            console.log('CALLED:> willPatch');
+        }
+
+        patched() {
+            console.log('CALLED:> patched');
+        }
+
+        willUnmount() {
+            console.log('CALLED:> willUnmount');
+        }
+
         // mtds to handle events
         onRemove(ev) {
             this.destroy();
