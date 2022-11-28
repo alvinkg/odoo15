@@ -1,17 +1,10 @@
 # odoo15
 Working on my Odoo cookbook
 Odoo 15 Chapter 16 Remote Procedure Calls (RPC)
-Calling methods through XML-RPC
+Logging in to/connecting Odoo with JSON-RPC
 
-Got thrown off by the error msg.  They were caused by the lack of return statements in the methods I called.  Note the last statement of 'return True' that must be added.
+(odoo-15-env) alvinlim@coolhandsg-iMac odoo15 % python3 jsonrpc_authentication.py
+Success: User id is 2
 
-    def make_borrowed(self):
-        self.ensure_one()
-        self.state = 'borrowed'
-        return True
-
-Result:
-(odoo-15-env) alvinlim@coolhandsg-iMac odoo15 % python3 
-books_method.py
-20 (printed out the book id)
-Book state after method call: borrowed
+(odoo-15-env) alvinlim@coolhandsg-iMac odoo15 % python3 jsonrpc_version_info.py
+{'jsonrpc': '2.0', 'id': 598023314, 'result': {'server_version': '15.0', 'server_version_info': [15, 0, 0, 'final', 0, ''], 'server_serie': '15.0', 'protocol_version': 1}}
