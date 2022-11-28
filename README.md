@@ -30,3 +30,6 @@ Consuming parameters passed to your handlers
     @http.route("/my_library/book_details/<model('library.book'):book>", type='http', auth='none')
     def book_details_in_path(self, book):
         return self.book_details(book.id)
+
+For Chp 14
+Odoo 15 no longer uses the views/templates.xml to indicate location of the scss, css, and js files.  Instead their paths are directly in the manifest.py file.  However I was not able to get the js file to work.

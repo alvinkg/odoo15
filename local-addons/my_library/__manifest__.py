@@ -20,7 +20,7 @@
     'version': '15.0.1.0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'contacts', 'mail'],
+    'depends': ['base', 'contacts', 'mail','website'],
 
     # always loaded
     'data': [
@@ -30,7 +30,7 @@
         # 'data/demo.xml',
         'data/library_stage.xml',
         'views/views.xml',
-        'views/templates.xml',
+        # 'views/templates.xml',
         'views/library_book.xml',
         'views/library_book_rent.xml',        
         'views/library_book_category.xml',
@@ -39,7 +39,13 @@
         'reports/book_rent_report.xml',
         'reports/book_rents_template.xml',
     ],
-    
+    'assets': {
+        'web.assets_frontend': [          
+            'my_library/static/src/scss/my_library.scss',
+            'my_library/static/src/css/my_library.css',
+            'my_library/static/src/js/my_library.js',
+            ],
+    },
     'application': True,
     'license': 'LGPL-3',
     'price': '',
