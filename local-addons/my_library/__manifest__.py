@@ -45,6 +45,9 @@
             'my_library/static/src/css/my_library.css',
             'my_library/static/src/js/my_library.js',
             ],
+        'web.assets_backend': [          
+            'my_library/static/src/js/component.js',
+            ],
     },
     'application': True,
     'license': 'LGPL-3',

@@ -60,3 +60,9 @@ odoo.define('my_library', function (require) {
         // if you created functionality to export, add it here
     }
 });
+
+I jumped to Chp 16 Owl because of the large changes to web dev in Odoo to Owl.
+Creating an OWL component
+1.  I do not use the template.xml in views dir.
+2.  I used the manifest.py to add the component.js file to the assets_backend
+3.  It seems to work, except the component was loaded on top instead of on the bottom.  Not sure why.
