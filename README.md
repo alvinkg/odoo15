@@ -1,5 +1,5 @@
 # odoo15
 Working on my Odoo cookbook
 
-Understanding the OWL component life cycle
-This sends logs to console.log at each step of the lifecycle of the OWL component.
+Adding an OWL field to the form view
+This was a long and complicated exercise and did not work.  I will have to find out why later.

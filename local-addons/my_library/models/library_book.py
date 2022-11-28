@@ -18,7 +18,7 @@ class LibraryBook(models.Model):
         'State', default="available")
     cost_price = fields.Float('Book Cost')
     category_id = fields.Many2one('library.book.category')
-
+    color = fields.Integer()
     rent_count = fields.Integer(compute="_compute_rent_count")
     def _compute_rent_count(self):
         BookRent = self.env['library.book.rent']

@@ -36,6 +36,7 @@
                             <field name="name"/>
                             <field name="category_id"/>
                             <field name="cost_price"/>
+                            <field name="color" widget="int_color"/>
                         </group>
                         <group>
                             <field name="date_release"/>
