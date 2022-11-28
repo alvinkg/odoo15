@@ -47,8 +47,8 @@
             ],
         'web.assets_common': [          
             # 'my_library/static/src/js/component.js',
-            'my_library/static/src/js/field_widget.js',
-            'my_library/static/src/scss/field_widget.scss',
+            # 'my_library/static/src/js/field_widget.js',
+            # 'my_library/static/src/scss/field_widget.scss',
             ],
     },
     'application': True,
@@ -60,8 +60,6 @@
     'demo': [
         'data/demo.xml',
         ],
-    "qweb": [
-        'static/src/xml/qweb_template.xml',
-    ],
+    # "qweb": 'static/src/xml/qweb_template.xml',
     'post_init_hook': 'add_book_hook',
 }

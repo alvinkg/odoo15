@@ -4,10 +4,14 @@ Odoo 15
 Remote Procedure Calls in Odoo
 
 1. Logging in to/connecting Odoo with XML-RPC
-(odoo-15-env) alvinlim@coolhandsg-iMac odoo15 % python3 odoo_authenticate.py
-Success: User id is 2
+Outcome is success!
+o15 % python3 books_data.py
+Books ids found: [2, 3]
+Books data: [{'id': 2, 'name': 'Odoo CookBook', 'date_release': '2022-11-24'}, {'id': 3, 'name': 'SQL for dummies like you', 'date_release': '2022-11-24'}]
 
-We use the std python xmlrpc lib to access odoo instance.
-Likewise, for the version_info.py success.
-(odoo-15-env) alvinlim@coolhandsg-iMac odoo15 % python3 version_info.py
-{'server_version': '15.0', 'server_version_info': [15, 0, 0, 'final', 0, ''], 'server_serie': '15.0', 'protocol_version': 1}
+We use two methods search and read in this exercise.
+Search returns book ids, while read passes book data to the var Books_data.
+I had to change the constants db_name to match.
+The second exercise is with the mtd search read.  Much faster.
+(odoo-15-env) alvinlim@coolhandsg-iMac odoo15 % python3 books_data2.py
+Books data: [{'id': 2, 'name': 'Odoo CookBook', 'date_release': '2022-11-24'}, {'id': 3, 'name': 'SQL for dummies like you', 'date_release': '2022-11-24'}]
