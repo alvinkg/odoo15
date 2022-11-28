@@ -20,7 +20,8 @@
                     <button name="make_available" string="Make Available" type="object" />
                     <button name="make_borrowed" string="Make Borrowed" type="object" />
                     <button name="make_lost" string="Make Lost" type="object" />
-                    <field name="state" widget="statusbar"/>
+                    <field name="state" widget="statusbar" nolabel="1" options="{'clickable': '1', 'fold_field':
+                    'fold'}"/>
                 </header>
                 <sheet>
                     

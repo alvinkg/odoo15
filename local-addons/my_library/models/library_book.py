@@ -12,10 +12,11 @@ class LibraryBook(models.Model):
     active = fields.Boolean(default=True)
     author_ids = fields.Many2many('res.partner', string='Authors')
     state = fields.Selection(
-        [('available', 'Available'),
+        [('draft', 'Not Available'),
+         ('available', 'Available'),
          ('borrowed', 'Borrowed'),
          ('lost', 'Lost')],
-        'State', default="available")
+        'State', default="draft")
     cost_price = fields.Float('Book Cost')
     category_id = fields.Many2one('library.book.category')
     color = fields.Integer()
