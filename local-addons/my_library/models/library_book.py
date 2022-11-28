@@ -31,11 +31,14 @@ class LibraryBook(models.Model):
     def make_available(self):
         self.ensure_one()
         self.state = 'available'
+        return True
 
     def make_borrowed(self):
         self.ensure_one()
         self.state = 'borrowed'
+        return True
 
     def make_lost(self):
         self.ensure_one()
         self.state = 'lost'
+        return True
