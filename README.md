@@ -32,4 +32,31 @@ Consuming parameters passed to your handlers
         return self.book_details(book.id)
 
 For Chp 14
-Odoo 15 no longer uses the views/templates.xml to indicate location of the scss, css, and js files.  Instead their paths are directly in the manifest.py file.  However I was not able to get the js file to work.
+Odoo 15 no longer uses the views/templates.xml to indicate location of the scss, css, and js files.  Instead their paths are directly in the manifest.py file.  In the manifest.py...
+    'assets': {
+        'web.assets_frontend': [          
+            'my_library/static/src/scss/my_library.scss',
+            'my_library/static/src/css/my_library.css',
+            'my_library/static/src/js/my_library.js',
+            ],
+    },
+However I was not able to get the js file to work. until I removed the myodoo.define and replaced with just 'odoo.define(...)'
+
+// myodoo.define('my_library', function(require){
+//     var core = require('web.core');
+
+//     alert(core._t('Hello World'));
+
+//     return {
+//         //if you created functionality to export, add it here.
+//     }
+// });
+# this works!
+odoo.define('my_library', function (require) {
+    var core = require('web.core');
+
+    alert(core._t('Hello world'));
+    return {
+        // if you created functionality to export, add it here
+    }
+});
